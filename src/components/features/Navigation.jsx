@@ -1,5 +1,6 @@
-import React, { useRef, useEffect } from 'react';
+import React, { useRef, useEffect, useMemo } from 'react';
 import { useNavigation } from '../../hooks/useNavigation';
+import { loadSolutions } from '../../utils/tempSolutions';
 
 const Navigation = ({ mobileOpen = false, navRef, onNavigate }) => {
   const { activeDropdown, handleDropdownToggle, registerDropdown } = useNavigation();
@@ -62,11 +63,10 @@ const Navigation = ({ mobileOpen = false, navRef, onNavigate }) => {
                 <div className="dropdown-column">
                   <h4>临时方案</h4>
                   <ul>
-                    <li><a href="/products/ai-speaking" onClick={onNavigate}>AI听说课堂</a></li>
-                    <li><a href="/products/ai-device" onClick={onNavigate}>AI学习机</a></li>
-                    <li><a href="/products/ai-research" onClick={onNavigate}>AI教研平台</a></li>
-                    <li><a href="/products/digital-homework" onClick={onNavigate}>数智作业</a></li>
-                    <li><a href="/products/ranxi-writing" onClick={onNavigate}>然析智能作文批改</a></li>
+                    {useMemo(() => loadSolutions(), []).map((s) => (
+                      <li key={s.id}><a href={`/generated/${s.id}`} onClick={onNavigate}>{s.title}</a></li>
+                    ))}
+                    <li><a href="/generate" onClick={onNavigate}>+ 自动生成</a></li>
                   </ul>
                 </div>
               </div>

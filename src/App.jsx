@@ -16,6 +16,8 @@ import Papers from './pages/Papers';
 import Patents from './pages/Patents';
 import Software from './pages/Software';
 import OpenSource from './pages/OpenSource';
+import Generate from './pages/Generate';
+import GeneratedDetail from './pages/GeneratedDetail';
 
 function App() {
   return (
@@ -25,6 +27,8 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/products" element={<Products />} />
           <Route path="/products/:slug" element={<ProductDetail />} />
+          <Route path="/generate" element={<Generate />} />
+          <Route path="/generated/:id" element={<GeneratedDetail />} />
           <Route path="/awards" element={<Awards />} />
           <Route path="/news" element={<News />} />
           <Route path="/papers" element={<Papers />} />
