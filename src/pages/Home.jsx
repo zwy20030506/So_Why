@@ -10,23 +10,17 @@ const Home = () => {
     {
       image: '/img/轮播图1.png',
       title: '千载风雅宋韵',
-      description: '承古韵之美，融现代之智，开启智慧教育新篇章',
-      primaryAction: { href: '#', text: '探索智慧' },
-      secondaryAction: { href: '#', text: '了解详情' }
+      description: '承古韵之美，融现代之智，开启智慧教育新篇章'
     },
     {
       image: '/img/青绿水墨风一叶知秋.png',
       title: '一叶知秋意',
-      description: '以智能科技为笔，绘制教育未来蓝图',
-      primaryAction: { href: '#', text: '体验课堂' },
-      secondaryAction: { href: '#', text: '查看案例' }
+      description: '以智能科技为笔，绘制教育未来蓝图'
     },
     {
       image: '/img/青绿水墨风渔舟唱晚.png',
       title: '渔舟唱晚歌',
-      description: '因材施教，个性化学习，让每个学子都能扬帆起航',
-      primaryAction: { href: '#', text: '开始学习' },
-      secondaryAction: { href: '#', text: '联系我们' }
+      description: '因材施教，个性化学习，让每个学子都能扬帆起航'
     }
   ];
 
