@@ -2,95 +2,100 @@ import React from 'react';
 import { useParams, Link } from 'react-router-dom';
 
 const PRODUCT_CONTENT = {
-  'yincaishijiao': {
-    title: '因材施教综合解决方案',
-    heroImage: '/img/江南书院联盟.png',
-    introImage: '/img/构建数据模型体系.png',
-    subtitle: '数据驱动的分层分类教学与精准评价',
+  // 基础教育分类
+  '智能作文修改': {
+    title: '智能作文修改',
+    heroImage: '/img/作文润色.png',
+    introImage: '/img/作文润色.png',
+    subtitle: 'AI赋能，让每一篇作文都得到精准反馈与高效提升',
     description:
-      '以学习者画像为核心，联通校内外数据，提供分层教学、个性化资源推荐与过程性评价，帮助区域与学校落地因材施教。'
+      '基于AI技术的智能作文批改工具，通过自然语言处理与深度学习算法，快速、精准地分析作文内容，提供语法纠错、结构优化、表达提升等全方位批改建议。'
   },
-  'edu-foundation': {
-    title: '教育数字基座',
-    heroImage: '/img/浅色棕黄色系-圆形-荷花.png',
-    introImage: '/img/构建数据模型体系.png',
-    subtitle: '统一的数据与能力底座，支撑教育全场景应用',
+  '古诗词语音评测': {
+    title: '古诗词语音评测',
+    heroImage: '/img/吟诵课堂.png',
+    introImage: '/img/吟诵课堂.png',
+    subtitle: '智能语音识别，精准评测古诗词语音表现',
     description:
-      '围绕身份、数据、知识与算力构建统一底座，提供标准化接入与治理能力，支撑区域教育数字化转型。'
+      '运用先进的语音识别技术，对学生的古诗词语音朗读进行实时评测，提供发音准确性、语调韵律、情感表达等多维度反馈，帮助学生提升古诗词语音学习效果。'
   },
-  'spark-dev': {
-    title: '星火应用开发助手',
-    heroImage: '/img/浅黄色系_飞鸟与黄花.png',
+  '智能书法练习': {
+    title: '智能书法练习',
+    heroImage: '/img/京师学堂数智化.png',
+    introImage: '/img/京师学堂数智化.png',
+    subtitle: 'AI指导，让书法练习更科学、更有效',
+    description:
+      '结合计算机视觉和AI技术，实时分析学生的书法笔画、结构布局和书写规范，提供个性化的练习建议和纠正指导，让传统书法学习融入现代科技元素。'
+  },
+  '数学讲题生成': {
+    title: '数学讲题生成',
+    heroImage: '/img/创新教学策略.png',
     introImage: '/img/创新教学策略.png',
-    subtitle: '低门槛、快速构建教育AI应用',
+    subtitle: '智能生成数学题目，个性化教学支持',
     description:
-      '面向教育业务的应用搭建助手，支持可视化编排、组件复用与模型接入，快速实现业务需求落地。'
+      '基于数学知识图谱和难度模型，智能生成符合教学大纲的数学题目，支持不同难度等级和知识点的题目定制，为教师提供丰富的教学资源。'
   },
-  'edu-insight': {
-    title: '教育大数据洞察',
-    heroImage: '/img/青绿水墨风一叶知秋.png',
-    introImage: '/img/大数据精准助学.png',
-    subtitle: '从数据到洞察，从洞察到决策',
+  '基于SOLO的作业批改': {
+    title: '基于SOLO的作业批改',
+    heroImage: '/img/构建数据模型体系.png',
+    introImage: '/img/构建数据模型体系.png',
+    subtitle: 'SOLO理论指导的智能作业评价系统',
     description:
-      '提供学情、教情、校情多维度分析看板，辅助区域与学校开展治理评估与决策优化。'
+      '运用SOLO（Structure of Observed Learning Outcome）理论框架，对学生的作业进行结构化分析和评价，识别学习层次，提供针对性的改进建议。'
   },
-  'ai-research': {
-    title: 'AI教研平台',
-    heroImage: '/img/在线教研.png',
-    introImage: '/img/在线教研.png',
-    subtitle: 'AI助力备课、磨课与资源共建',
+  
+  // 特殊教育分类
+  '声纹传语': {
+    title: '声纹传语',
+    heroImage: '/img/听说资源库.png',
+    introImage: '/img/听说资源库.png',
+    subtitle: '声纹识别技术，助力特殊教育沟通',
     description:
-      '集备课、生生成、课堂反馈与教研协作于一体，沉淀优质资源与教研成果。'
+      '利用声纹识别技术，为有语言障碍的学生提供个性化的语音训练和沟通辅助，通过AI分析语音特征，帮助改善发音和语言表达能力。'
   },
-  'smart-classroom': {
-    title: '智慧课堂',
-    heroImage: '/img/智慧课堂.png',
-    introImage: '/img/智慧课堂.png',
-    subtitle: '以学为中心的课堂重构与数据闭环',
+  '字词评测系统': {
+    title: '字词评测系统',
+    heroImage: '/img/古韵科考系统.png',
+    introImage: '/img/古韵科考系统.png',
+    subtitle: '智能评测汉字书写和词汇掌握',
     description:
-      '课堂多模态采集与实时反馈，支持教学过程优化与因材施教落地。'
+      '专门为特殊教育设计的字词评测系统，通过图像识别和AI分析，评估学生的汉字书写规范性和词汇理解程度，提供精准的学习反馈。'
   },
-  'spark-teacher': {
-    title: '星火教师助手',
+  '盲文智能批改系统': {
+    title: '盲文智能批改系统',
+    heroImage: '/img/京师学堂数智化.png',
+    introImage: '/img/京师学堂数智化.png',
+    subtitle: 'AI助力盲文学习，提升学习效率',
+    description:
+      '专为视障学生设计的盲文学习辅助系统，通过AI技术识别和批改盲文作业，提供即时反馈和个性化学习建议，让盲文学习更加高效。'
+  },
+  '构音障碍识别': {
+    title: '构音障碍识别',
+    heroImage: '/img/听说资源库.png',
+    introImage: '/img/听说资源库.png',
+    subtitle: 'AI辅助构音障碍诊断与训练',
+    description:
+      '运用语音识别和AI分析技术，自动识别学生的构音障碍问题，提供专业的诊断报告和个性化的康复训练方案，支持言语治疗师的工作。'
+  },
+  'AI言语康复师': {
+    title: 'AI言语康复师',
     heroImage: '/img/教师管理系统界面.png',
     introImage: '/img/教师管理系统界面.png',
-    subtitle: '让教师专注于教，繁杂交给AI',
+    subtitle: '24小时在线的智能言语康复助手',
     description:
-      '提供教案生成、作业批阅、测评分析等辅助能力，提升教师教学效率。'
+      '基于AI技术的虚拟言语康复师，为学生提供全天候的言语训练指导，包括发音练习、语言表达训练、康复进度跟踪等功能。'
   },
-  'personalized-learning': {
-    title: '个性化学习手册',
-    heroImage: '/img/青绿水墨风渔舟唱晚.png',
-    introImage: '/img/青绿水墨风渔舟唱晚.png',
-    subtitle: '千人千面的学习路径与资源推荐',
+  '心理陪伴': {
+    title: '心理陪伴',
+    heroImage: '/img/智慧心育.png',
+    introImage: '/img/智慧心育.png',
+    subtitle: 'AI心理支持，守护学生心理健康',
     description:
-      '基于学生画像与知识图谱，动态生成个性化学习路径与资源清单。'
+      '运用AI技术为学生提供心理健康支持和情感陪伴，通过智能对话、情绪识别、心理评估等功能，帮助学生缓解压力、调节情绪。'
   },
-  'ai-speaking': {
-    title: 'AI听说课堂',
-    heroImage: '/img/听说资源库.png',
-    introImage: '/img/吟诵课堂.png',
-    subtitle: '口语听力AI评测与个性化训练',
-    description:
-      '面向语文学科的吟诵与口语训练，提供即时测评与纠错反馈。'
-  },
-  'precise-teaching': {
-    title: '大数据精准教学',
-    heroImage: '/img/大数据精准助学.png',
-    introImage: '/img/大数据精准助学.png',
-    subtitle: '以数据为依据的精准教与学',
-    description:
-      '通过学情诊断与资源匹配，支持备、教、学、评全流程的精准化。'
-  },
-  'smart-pe': {
-    title: '智慧体育',
-    heroImage: '/img/监督管理系统.png',
-    introImage: '/img/监督管理系统.png',
-    subtitle: '体测数据与课堂教学一体化',
-    description:
-      '采集学生体能数据，驱动体育教学与课后锻炼闭环管理。'
-  },
-  'traditional-exam': {
+  
+  // 其他产品分类
+  '传统教育考试': {
     title: '传统教育考试',
     heroImage: '/img/古韵科考系统.png',
     introImage: '/img/古韵科考系统.png',
@@ -98,53 +103,29 @@ const PRODUCT_CONTENT = {
     description:
       '支持命题、制卷、阅卷、统计全流程的信息化管理。'
   },
-  'cbt-exam': {
+  '计算机化考试': {
     title: '计算机化考试',
-    heroImage: '/img/监督管理系统.png',
-    introImage: '/img/监督管理系统.png',
-    subtitle: '安全可靠的上机考试方案',
+    heroImage: '/img/古韵科考系统.png',
+    introImage: '/img/古韵科考系统.png',
+    subtitle: '现代化考试系统，提升考试效率',
     description:
-      '题库管理、随机组卷、防作弊监测与成绩分析一体化。'
+      '基于计算机技术的现代化考试系统，支持多种题型、自动评分、数据分析等功能，为教育机构提供完整的考试解决方案。'
   },
-  'language-test': {
+  '智能语言测试': {
     title: '智能语言测试',
     heroImage: '/img/听说资源库.png',
     introImage: '/img/听说资源库.png',
-    subtitle: '发音、韵律、语义理解多维评估',
+    subtitle: 'AI驱动的语言能力评估',
     description:
-      '提供分项评分与改进建议，支持个性化训练计划生成。'
+      '运用AI技术进行语言能力测试，包括听说读写全方位评估，提供精准的语言水平诊断和个性化学习建议。'
   },
-  'language-learning': {
+  '智能语言学习': {
     title: '智能语言学习',
-    heroImage: '/img/吟诵课堂.png',
-    introImage: '/img/吟诵课堂.png',
-    subtitle: 'AI互动式语言学习体验',
+    heroImage: '/img/听说资源库.png',
+    introImage: '/img/听说资源库.png',
+    subtitle: '个性化语言学习路径规划',
     description:
-      '沉浸式互动学习与即时反馈，提升语言学习效果。'
-  },
-  'ai-device': {
-    title: 'AI学习机',
-    heroImage: '/img/浅黄色系_飞鸟与黄花.png',
-    introImage: '/img/浅黄色棕黄色系-圆形-荷花.png',
-    subtitle: '随时随地的个性化学习助手',
-    description:
-      '软硬件一体的学习终端，支持多学科、多场景学习应用。'
-  },
-  'digital-homework': {
-    title: '数智作业',
-    heroImage: '/img/构建数据模型体系.png',
-    introImage: '/img/构建数据模型体系.png',
-    subtitle: '布置、完成、批改、反馈全流程在线化',
-    description:
-      '信息化作业平台，提供智能批改与过程性评价能力。'
-  },
-  'ranxi-writing': {
-    title: '然析智能作文批改',
-    heroImage: '/img/青绿水墨风渔舟唱晚.png',
-    introImage: '/img/作文润色.png',
-    subtitle: 'AI赋能，让每一篇作文都得到精准反馈与高效提升',
-    description:
-      '自然语言处理与深度学习加持，提供语法、结构、表达全方位批改建议。'
+      '基于AI技术的智能语言学习平台，根据学习者水平制定个性化学习计划，提供丰富的学习资源和智能化的学习指导。'
   }
 };
 

@@ -31,37 +31,37 @@ const Navigation = ({ mobileOpen = false, navRef, onNavigate }) => {
             <div className="container">
               <div className="dropdown-columns">
                 <div className="dropdown-column">
-                  <h4>区域教育治理</h4>
+                  <h4>基础教育</h4>
                   <ul>
-                    <li><a href="/products/yincaishijiao" onClick={onNavigate}>因材施教综合解决方案</a></li>
-                    <li><a href="/products/edu-foundation" onClick={onNavigate}>教育数字基座</a></li>
-                    <li><a href="/products/spark-dev" onClick={onNavigate}>星火应用开发助手</a></li>
-                    <li><a href="/products/edu-insight" onClick={onNavigate}>教育大数据洞察</a></li>
-                    <li><a href="/products/ai-research" onClick={onNavigate}>AI教研平台</a></li>
+                    <li><a href="/products/智能作文修改" onClick={onNavigate}>智能作文修改</a></li>
+                    <li><a href="/products/古诗词语音评测" onClick={onNavigate}>古诗词语音评测</a></li>
+                    <li><a href="/products/智能书法练习" onClick={onNavigate}>智能书法练习</a></li>
+                    <li><a href="/products/数学讲题生成" onClick={onNavigate}>数学讲题生成</a></li>
+                    <li><a href="/products/基于SOLO的作业批改" onClick={onNavigate}>基于SOLO的作业批改</a></li>
                   </ul>
                 </div>
                 <div className="dropdown-column">
-                  <h4>校园主阵地建设</h4>
+                  <h4>特殊教育</h4>
                   <ul>
-                    <li><a href="/products/smart-classroom" onClick={onNavigate}>智慧课堂</a></li>
-                    <li><a href="/products/spark-teacher" onClick={onNavigate}>星火教师助手</a></li>
-                    <li><a href="/products/personalized-learning" onClick={onNavigate}>个性化学习手册</a></li>
-                    <li><a href="/products/ai-speaking" onClick={onNavigate}>AI听说课堂</a></li>
-                    <li><a href="/products/precise-teaching" onClick={onNavigate}>大数据精准教学</a></li>
-                    <li><a href="/products/smart-pe" onClick={onNavigate}>智慧体育</a></li>
+                    <li><a href="/products/声纹传语" onClick={onNavigate}>声纹传语</a></li>
+                    <li><a href="/products/字词评测系统" onClick={onNavigate}>字词评测系统</a></li>
+                    <li><a href="/products/盲文智能批改系统" onClick={onNavigate}>盲文智能批改系统</a></li>
+                    <li><a href="/products/构音障碍识别" onClick={onNavigate}>构音障碍识别</a></li>
+                    <li><a href="/products/AI言语康复师" onClick={onNavigate}>AI言语康复师</a></li>
+                    <li><a href="/products/心理陪伴" onClick={onNavigate}>心理陪伴</a></li>
                   </ul>
                 </div>
                 <div className="dropdown-column">
-                  <h4>智慧考试</h4>
+                  <h4>其他产品</h4>
                   <ul>
-                    <li><a href="/products/traditional-exam" onClick={onNavigate}>传统教育考试</a></li>
-                    <li><a href="/products/cbt-exam" onClick={onNavigate}>计算机化考试</a></li>
-                    <li><a href="/products/language-test" onClick={onNavigate}>智能语言测试</a></li>
-                    <li><a href="/products/language-learning" onClick={onNavigate}>智能语言学习</a></li>
+                    <li><a href="/products/传统教育考试" onClick={onNavigate}>传统教育考试</a></li>
+                    <li><a href="/products/计算机化考试" onClick={onNavigate}>计算机化考试</a></li>
+                    <li><a href="/products/智能语言测试" onClick={onNavigate}>智能语言测试</a></li>
+                    <li><a href="/products/智能语言学习" onClick={onNavigate}>智能语言学习</a></li>
                   </ul>
                 </div>
                 <div className="dropdown-column">
-                  <h4>临时方案</h4>
+                  <h4>计划方案</h4>
                   <ul>
                     {useMemo(() => loadSolutions(), []).map((s) => (
                       <li key={s.id}><a href={`/generated/${s.id}`} onClick={onNavigate}>{s.title}</a></li>

@@ -4351,3 +4351,128 @@ body {
         gap: 20px;
     }
 }
+
+/* 产品分类展示样式 */
+.product-categories {
+    padding: 80px 0;
+    background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+}
+
+.category-section {
+    margin-bottom: 60px;
+}
+
+.category-title {
+    font-size: 2.2rem;
+    font-weight: 600;
+    color: #8B4513;
+    margin-bottom: 30px;
+    text-align: center;
+    font-family: '楷体', 'KaiTi', serif;
+    position: relative;
+    padding-bottom: 15px;
+}
+
+.category-title::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 3px;
+    background: linear-gradient(135deg, #8B4513, #A0522D);
+    border-radius: 2px;
+}
+
+.category-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    margin-bottom: 40px;
+}
+
+.category-item {
+    background: white;
+    border-radius: 15px;
+    padding: 25px;
+    text-align: center;
+    box-shadow: 0 8px 25px rgba(139, 69, 19, 0.1);
+    border: 1px solid rgba(139, 69, 19, 0.1);
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.category-item::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(135deg, #8B4513, #A0522D);
+    transform: scaleX(0);
+    transition: transform 0.3s ease;
+}
+
+.category-item:hover::before {
+    transform: scaleX(1);
+}
+
+.category-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 35px rgba(139, 69, 19, 0.15);
+}
+
+.category-item img {
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+    border-radius: 50%;
+    margin: 0 auto 20px;
+    border: 3px solid rgba(139, 69, 19, 0.1);
+    transition: all 0.3s ease;
+}
+
+.category-item:hover img {
+    border-color: rgba(139, 69, 19, 0.3);
+    transform: scale(1.1);
+}
+
+.category-item h4 {
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: #8B4513;
+    margin-bottom: 15px;
+    font-family: '楷体', 'KaiTi', serif;
+}
+
+.category-item p {
+    color: #64748b;
+    line-height: 1.6;
+    margin-bottom: 20px;
+    font-size: 0.95rem;
+}
+
+.category-item .btn {
+    padding: 10px 20px;
+    font-size: 14px;
+    border-radius: 20px;
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+    .category-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+    
+    .category-item {
+        padding: 20px;
+    }
+    
+    .category-title {
+        font-size: 1.8rem;
+    }
+}
