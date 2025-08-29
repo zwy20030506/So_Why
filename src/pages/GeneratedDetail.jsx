@@ -2,7 +2,7 @@ import React, { useMemo } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { getSolution } from '../utils/tempSolutions';
 import { parseMarkdown, parseProductValues } from '../utils/mdParser';
-import { selectImagesForValues, AVAILABLE_IMAGES } from '../utils/generatedAssets';
+import { pickHeroAndIntroByTitle, selectDemoImagesForValues } from '../utils/generatedAssets';
 
 // 采用最轻量的渲染：将 markdown 作为段落与列表简单展示
 // 如果后续需要更高保真，可引入 markdown 渲染库（不在本次范围内，避免多余改动）
@@ -89,9 +89,10 @@ const GeneratedDetail = () => {
     );
   }
 
-  const images = selectImagesForValues(values?.length || 0);
-  const heroImage = AVAILABLE_IMAGES[0];
-  const introImage = AVAILABLE_IMAGES[1] || heroImage;
+  const { hero: heroImage } = pickHeroAndIntroByTitle(parsed.product_name || data.title);
+  const images = selectDemoImagesForValues(values?.length || 0, parsed.product_name || data.title);
+  const introList = selectDemoImagesForValues(1, parsed.product_name || data.title);
+  const introImage = introList && introList.length ? introList[0] : heroImage;
 
   return (
     <div className="products-page">

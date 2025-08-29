@@ -50,15 +50,24 @@ export function parseProductValues(valueContent) {
   for (let raw of lines) {
     let line = raw.trim();
     if (!line) continue;
-    const hasColon = line.includes('：') || line.includes(':');
-    if (hasColon) {
+    // 清理 markdown 符号与项目符号
+    if (line.startsWith('- ')) line = line.slice(2).trim();
+    line = line.replace(/\*\*/g, '').replace(/\*/g, '');
+
+    // 查找首个分隔符位置（支持中文冒号与英文冒号）
+    const idxCn = line.indexOf('：');
+    const idxEn = line.indexOf(':');
+    const useIdx = idxCn >= 0 ? idxCn : idxEn;
+
+    if (useIdx >= 0) {
+      // 新的价值点
       if (current) values.push(current);
-      let title, desc;
-      if (line.includes('：')) [title, desc] = line.split('：', 1);
-      else [title, desc] = line.split(':', 1);
-      current = { title: title.trim(), description: (desc || '').trim() };
+      const title = line.slice(0, useIdx).trim();
+      const desc = line.slice(useIdx + 1).trim();
+      current = { title, description: desc };
     } else if (current) {
-      current.description += ' ' + line;
+      // 续写上一条描述
+      current.description = (current.description ? current.description + ' ' : '') + line;
     }
   }
   if (current) values.push(current);
