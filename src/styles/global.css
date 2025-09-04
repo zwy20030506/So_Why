@@ -1,21 +1,31 @@
 /* 全局样式重置 */
 * {
+  /* 外边距 */
   margin: 0;
+  /* 内边距 */
   padding: 0;
+  /* 盒子模型 */
   box-sizing: border-box;
 }
 
 body {
+  /* 字体 */
   font-family: '宋体', 'SimSun', '微软雅黑', 'Microsoft YaHei', serif;
+  /* 行高  设置为字体大小的1.8倍*/
   line-height: 1.8;
+  /* 颜色 */
   color: #4a4a4a;
+  /* 溢出隐藏  禁止页面横向滚动（x 轴溢出的内容会被隐藏），避免一些布局错位导致的横向滚动条*/
   overflow-x: hidden;
+  /* 背景渐变 从左上到右下 从浅黄色到深黄色*/
   background: linear-gradient(135deg, #f7f3e9 0%, #f0ede3 100%);
+  /* 背景固定 背景不会随页面滚动而滚动*/
   background-attachment: fixed;
 }
 
 /* 容器样式 */
 .container {
+  /* 最大宽度 */
   max-width: 1200px;
   margin: 0 auto;
   padding: 0 10px;
@@ -23,49 +33,76 @@ body {
 
 /* 按钮样式 */
 .btn {
+  /* 内联块元素 可以设置宽高 并且可以设置内边距和外边距*/
   display: inline-block;
   padding: 12px 24px;
+  /* 文本装饰 去掉下划线*/
   text-decoration: none;
+  /* 圆角 25px*/
   border-radius: 25px;
+  /* 字体粗细 500*/
   font-weight: 500;
+  /* 文本居中*/
   text-align: center;
+  /* 过渡效果 所有属性都以0.3秒的过渡效果*/
   transition: all 0.3s ease;
+  /* 鼠标悬停时显示为指针*/
   cursor: pointer;
+  /* 边框 无*/
   border: none;
+  /* 字体大小 16px*/
   font-size: 16px;
+  /* 字体 楷体*/
   font-family: '楷体', 'KaiTi', serif;
 }
 
 .btn-primary {
+  /* 背景渐变 从左上到右下，颜色从深棕到金棕色，给按钮一种金属/皮革质感*/
   background: linear-gradient(135deg, #8B4513, #A0522D, #CD853F);
+  /* 文本颜色 米白色*/
   color: #f7f3e9;
+  /* 阴影 外阴影两层：制造浮起感，按钮像“立体悬浮”  内阴影一层：顶部加一点亮光，让按钮表面有微光 → 质感提升*/
   box-shadow: 
     0 6px 20px rgba(139, 69, 19, 0.3),
     0 3px 10px rgba(139, 69, 19, 0.2),
     inset 0 1px 0 rgba(255, 255, 255, 0.2);
+  /* 细边框（1px） + 半透明棕色，既能和背景融合，又能勾勒按钮的边界*/
   border: 1px solid rgba(139, 69, 19, 0.6);
+  /* 相对定位 保证伪元素（比如 hover 时加的光效）能基于按钮边界正确定位*/
   position: relative;
+  /* 溢出隐藏 避免动画/光效超出按钮外框时影响其他元素。*/
   overflow: hidden;
+  /* 模糊滤镜 10px 通常在透明背景或玻璃拟态（Glassmorphism）设计里使用  在按钮上应用，可以让它看起来像是“磨砂玻璃质感”*/
   backdrop-filter: blur(10px);
 }
 
 .btn-primary:hover {
+  /* 向上移动3px 制造“悬浮”感*/
   transform: translateY(-3px);
   box-shadow: 
+    /* 更大范围的外阴影，突出浮起效果 */
     0 12px 35px rgba(139, 69, 19, 0.4),
+    /* 中层阴影，保持层次 */
     0 6px 20px rgba(139, 69, 19, 0.3),
+    /* 内部光亮更明显 */
     inset 0 1px 0 rgba(255, 255, 255, 0.3);
 }
 
 .btn-outline {
+  /* 白色半透明背景  仿玻璃/磨砂效果*/
   background: rgba(255, 255, 255, 0.1);
+  /* 棕色文本 按钮文字颜色*/
   color: #8B4513;
+  /* 深棕色边框 0.6 透明度*/
   border: 2px solid rgba(139, 69, 19, 0.6);
+  /* 模糊按钮后的背景*/
   backdrop-filter: blur(10px);
 }
 
 .btn-outline:hover {
+  /* 悬停时按钮背景从 半透明玻璃效果 → 实心渐变背景。 */
   background: linear-gradient(135deg, #8B4513, #A0522D);
+  /* 悬停时按钮文字颜色从棕色 → 米白色，和背景颜色形成对比*/
   color: #f7f3e9;
 }
 
@@ -153,49 +190,636 @@ body {
   margin: 30px 0;
 }
 
+/* 新闻页面新样式 - 参考科大讯飞布局 */
+.news-page {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #f7f3e9 0%, #f0ede3 100%);
+}
+
+/* 顶部横幅区域 */
+/* 复用产品与服务页 hero 结构的新闻头图样式 */
+.news-hero {
+  height: 40px;
+  margin-top: 80px;
+}
+
+.news-hero .hero-overlay {
+  background: linear-gradient(135deg, rgba(139, 69, 19, 0.6) 0%, rgba(160, 82, 45, 0.5) 50%, rgba(205, 133, 63, 0.4) 100%);
+}
+
+.banner-overlay {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.banner-content {
+  text-align: center;
+  color: #f7f3e9;
+  width: 100%;
+}
+
+.banner-title {
+  font-size: 3rem;
+  font-weight: 700;
+  margin-bottom: 15px;
+  font-family: '楷体', 'KaiTi', serif;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.banner-subtitle {
+  font-size: 1.3rem;
+  margin-bottom: 30px;
+  font-family: '宋体', 'SimSun', serif;
+  opacity: 0.9;
+}
+
+.banner-search {
+  display: flex;
+  justify-content: center;
+}
+
+.search-box {
+  display: flex;
+  max-width: 500px;
+  width: 100%;
+  position: relative;
+}
+
+.search-input {
+  flex: 1;
+  padding: 15px 20px;
+  border: none;
+  border-radius: 25px 0 0 25px;
+  font-size: 16px;
+  font-family: '宋体', 'SimSun', serif;
+  background: rgba(255, 255, 255, 0.95);
+  color: #4a4a4a;
+  transition: all 0.3s ease;
+}
+
+.search-input:focus {
+  outline: none;
+  background: rgba(255, 255, 255, 1);
+  box-shadow: 0 0 0 3px rgba(139, 69, 19, 0.2);
+}
+
+.search-btn {
+  padding: 15px 20px;
+  background: linear-gradient(135deg, #8B4513, #A0522D);
+  color: white;
+  border: none;
+  border-radius: 0 25px 25px 0;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-size: 16px;
+}
+
+.search-btn:hover {
+  background: linear-gradient(135deg, #A0522D, #CD853F);
+  transform: translateY(-2px);
+}
+
+.search-icon {
+  font-style: normal;
+}
+
+/* 分类标签区域 */
+.news-categories {
+  margin-bottom: 30px;
+  padding: 20px 0;
+}
+
+.categories-wrapper {
+  display: flex;
+  gap: 15px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.category-tab {
+  padding: 12px 24px;
+  border: 2px solid rgba(139, 69, 19, 0.3);
+  background: rgba(255, 255, 255, 0.8);
+  color: #8B4513;
+  border-radius: 25px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-family: '楷体', 'KaiTi', serif;
+  font-size: 14px;
+  backdrop-filter: blur(10px);
+}
+
+.category-tab:hover {
+  border-color: rgba(139, 69, 19, 0.6);
+  background: rgba(139, 69, 19, 0.05);
+  transform: translateY(-2px);
+}
+
+.category-tab.active {
+  background: linear-gradient(135deg, #8B4513, #A0522D);
+  color: white;
+  border-color: #8B4513;
+  box-shadow: 0 4px 15px rgba(139, 69, 19, 0.3);
+}
+
+/* 新闻统计信息 */
+.news-stats {
+  margin-bottom: 30px;
+  padding: 20px;
+  background: rgba(255, 255, 255, 0.6);
+  border-radius: 15px;
+  border: 1px solid rgba(139, 69, 19, 0.1);
+  backdrop-filter: blur(10px);
+}
+
+.stats-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+
+.stats-text, .category-filter {
+  font-size: 14px;
+  color: #666;
+  font-family: '宋体', 'SimSun', serif;
+}
+
+.stats-text strong, .category-filter strong {
+  color: #8B4513;
+  font-weight: 600;
+}
+
+/* 新闻内容区域 */
+.news-content {
+  margin-bottom: 40px;
+}
+
+.news-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+  gap: 25px;
+}
+
+/* 新闻卡片样式 */
+.news-card {
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(139, 69, 19, 0.1);
+  transition: all 0.3s ease;
+  cursor: pointer;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.news-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 40px rgba(139, 69, 19, 0.15);
+  border-color: rgba(139, 69, 19, 0.3);
+}
+
+.news-card-image {
+  position: relative;
+  height: 200px;
+  overflow: hidden;
+}
+
+.news-card-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.news-card:hover .news-card-image img {
+  transform: scale(1.05);
+}
+
+.news-card-overlay {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+}
+
+.news-category-tag {
+  background: rgba(139, 69, 19, 0.9);
+  color: white;
+  padding: 6px 12px;
+  border-radius: 15px;
+  font-size: 12px;
+  font-family: '楷体', 'KaiTi', serif;
+  backdrop-filter: blur(10px);
+}
+
+.news-card-content {
+  flex: 1;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+.news-card-header {
+  margin-bottom: 15px;
+  flex: 1;
+}
+
+.news-card-title {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #8B4513;
+  margin-bottom: 10px;
+  font-family: '楷体', 'KaiTi', serif;
+  line-height: 1.4;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.news-card-description {
+  color: #666;
+  line-height: 1.6;
+  font-size: 14px;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.news-card-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+  font-size: 13px;
+  color: #888;
+}
+
+.news-meta-left {
+  display: flex;
+  gap: 15px;
+}
+
+.news-meta-left span, .news-meta-right span {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.news-meta-left .icon, .news-meta-right .icon {
+  font-style: normal;
+  font-size: 14px;
+}
+
+.news-card-tags {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.news-tag {
+  padding: 4px 8px;
+  background: rgba(139, 69, 19, 0.1);
+  color: #8B4513;
+  border-radius: 12px;
+  font-size: 11px;
+  border: 1px solid rgba(139, 69, 19, 0.2);
+  transition: all 0.3s ease;
+}
+
+.news-tag:hover {
+  background: rgba(139, 69, 19, 0.2);
+  transform: translateY(-1px);
+}
+
+/* 无新闻状态 */
+.no-news {
+  text-align: center;
+  padding: 60px 20px;
+  background: rgba(255, 255, 255, 0.6);
+  border-radius: 15px;
+  border: 1px solid rgba(139, 69, 19, 0.1);
+  backdrop-filter: blur(10px);
+}
+
+.no-news-icon {
+  font-size: 4rem;
+  margin-bottom: 20px;
+  opacity: 0.6;
+}
+
+.no-news h3 {
+  color: #8B4513;
+  margin-bottom: 10px;
+  font-family: '楷体', 'KaiTi', serif;
+}
+
+.no-news p {
+  color: #666;
+  font-family: '宋体', 'SimSun', serif;
+}
+
+/* 分页控件 */
+.pagination-wrapper {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 40px;
+}
+
+.pagination {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.pagination-btn {
+  padding: 10px 16px;
+  border: 2px solid rgba(139, 69, 19, 0.3);
+  background: rgba(255, 255, 255, 0.8);
+  color: #8B4513;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-family: '楷体', 'KaiTi', serif;
+  font-size: 14px;
+  backdrop-filter: blur(10px);
+}
+
+.pagination-btn:hover:not(.disabled) {
+  border-color: rgba(139, 69, 19, 0.6);
+  background: rgba(139, 69, 19, 0.05);
+  transform: translateY(-2px);
+}
+
+.pagination-btn.active {
+  background: linear-gradient(135deg, #8B4513, #A0522D);
+  color: white;
+  border-color: #8B4513;
+  box-shadow: 0 4px 15px rgba(139, 69, 19, 0.3);
+}
+
+.pagination-btn.disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* 订阅区域 */
+.news-subscription {
+  background: linear-gradient(135deg, rgba(139, 69, 19, 0.05), rgba(160, 82, 45, 0.05));
+  border-radius: 20px;
+  padding: 40px;
+  border: 1px solid rgba(139, 69, 19, 0.1);
+  backdrop-filter: blur(10px);
+  margin-bottom: 40px;
+}
+
+.subscription-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 30px;
+  flex-wrap: wrap;
+}
+
+.subscription-text h3 {
+  color: #8B4513;
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+  font-family: '楷体', 'KaiTi', serif;
+}
+
+.subscription-text p {
+  color: #666;
+  font-family: '宋体', 'SimSun', serif;
+}
+
+.subscription-form {
+  display: flex;
+  gap: 15px;
+  flex-wrap: wrap;
+}
+
+.subscription-input {
+  padding: 12px 20px;
+  border: 2px solid rgba(139, 69, 19, 0.3);
+  border-radius: 25px;
+  font-size: 14px;
+  font-family: '宋体', 'SimSun', serif;
+  background: rgba(255, 255, 255, 0.9);
+  min-width: 250px;
+  transition: all 0.3s ease;
+}
+
+.subscription-input:focus {
+  outline: none;
+  border-color: #8B4513;
+  box-shadow: 0 0 0 3px rgba(139, 69, 19, 0.1);
+}
+
+.subscription-btn {
+  padding: 12px 24px;
+  background: linear-gradient(135deg, #8B4513, #A0522D);
+  color: white;
+  border: none;
+  border-radius: 25px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-family: '楷体', 'KaiTi', serif;
+  font-size: 14px;
+}
+
+.subscription-btn:hover {
+  background: linear-gradient(135deg, #A0522D, #CD853F);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(139, 69, 19, 0.3);
+}
+
+/* 新闻总览：左窄右宽布局 */
+.news-overview {
+  margin: 30px 0 10px;
+}
+
+.overview-grid {
+  display: grid;
+  grid-template-columns: 1fr 3fr;
+  gap: 24px;
+}
+
+.overview-title {
+  font-family: '楷体', 'KaiTi', serif;
+  color: #8B4513;
+  font-size: 1.3rem;
+  margin-bottom: 12px;
+}
+
+.overview-featured {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.featured-card {
+  display: grid;
+  grid-template-columns: 110px 1fr;
+  gap: 12px;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.8);
+  border: 1px solid rgba(139, 69, 19, 0.15);
+  border-radius: 10px;
+  padding: 10px;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.featured-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(139, 69, 19, 0.15);
+}
+
+.featured-thumb {
+  width: 110px;
+  height: 70px;
+  overflow: hidden;
+  border-radius: 8px;
+}
+
+.featured-thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.featured-info {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.featured-title {
+  font-size: 0.98rem;
+  color: #4a4a4a;
+  line-height: 1.35;
+}
+
+.featured-date {
+  font-size: 0.85rem;
+  color: #8B4513;
+}
+
+.overview-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  background: rgba(255, 255, 255, 0.8);
+  border: 1px solid rgba(139, 69, 19, 0.15);
+  border-radius: 10px;
+}
+
+.overview-list-item {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 14px;
+  cursor: pointer;
+  border-bottom: 1px solid rgba(139, 69, 19, 0.1);
+}
+
+.overview-list-item:last-child {
+  border-bottom: none;
+}
+
+.overview-list-item:hover {
+  background: rgba(139, 69, 19, 0.05);
+}
+
+.list-title {
+  color: #333;
+  font-size: 0.98rem;
+  line-height: 1.4;
+}
+
+.list-date {
+  color: #8B4513;
+  font-size: 0.9rem;
+  white-space: nowrap;
+}
+
+@media (max-width: 768px) {
+  .overview-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
 /* 响应式设计 */
 @media (max-width: 768px) {
-  .container {
-    padding: 0 15px;
+  .news-hero {
+    height: 35px;
+    margin-top: 70px;
   }
   
-  .page-title {
-    font-size: 2rem;
-    margin: 30px 0;
+  .banner-title {
+    font-size: 2.2rem;
   }
   
-  .section-title {
-    font-size: 1.5rem;
-    margin: 20px 0 15px;
+  .banner-subtitle {
+    font-size: 1.1rem;
   }
   
-  .features-grid,
-  .products-grid,
-  .awards-grid,
-  .news-grid,
-  .papers-grid,
-  .patents-grid,
-  .software-grid {
+  .news-grid {
     grid-template-columns: 1fr;
-    gap: 20px;
   }
   
-  .btn {
-    padding: 10px 20px;
-    font-size: 14px;
+  .categories-wrapper {
+    justify-content: flex-start;
+    overflow-x: auto;
+    padding-bottom: 10px;
+  }
+  
+  .subscription-content {
+    flex-direction: column;
+    text-align: center;
+  }
+  
+  .subscription-form {
+    justify-content: center;
+  }
+  
+  .stats-info {
+    flex-direction: column;
+    align-items: flex-start;
   }
 }
 
 @media (max-width: 480px) {
-  .page-title {
+  .news-banner {
+    height: 200px;
+  }
+  
+  .banner-title {
     font-size: 1.8rem;
   }
   
-  .section-title {
-    font-size: 1.3rem;
+  .banner-subtitle {
+    font-size: 1rem;
   }
   
-  .card {
+  .search-box {
+    max-width: 100%;
+  }
+  
+  .news-card-content {
     padding: 15px;
+  }
+  
+  .news-card-title {
+    font-size: 1.1rem;
   }
 }

@@ -12,6 +12,7 @@ import Products from './pages/Products';
 import ProductDetail from './pages/ProductDetail';
 import Awards from './pages/Awards';
 import News from './pages/News';
+import NewsDetail from './pages/NewsDetail';
 import Papers from './pages/Papers';
 import Patents from './pages/Patents';
 import Software from './pages/Software';
@@ -31,6 +32,7 @@ function App() {
           <Route path="/generated/:id" element={<GeneratedDetail />} />
           <Route path="/awards" element={<Awards />} />
           <Route path="/news" element={<News />} />
+          <Route path="/news/:id" element={<NewsDetail />} />
           <Route path="/papers" element={<Papers />} />
           <Route path="/patents" element={<Patents />} />
           <Route path="/software" element={<Software />} />

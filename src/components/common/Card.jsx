@@ -9,7 +9,11 @@ const Card = ({
   onClick 
 }) => {
   return (
-    <div className={`card ${className}`} onClick={onClick}>
+    <div 
+      className={`card ${className} ${onClick ? 'clickable' : ''}`} 
+      onClick={onClick}
+      style={{ cursor: onClick ? 'pointer' : 'default' }}
+    >
       {image && (
         <div className="card-image">
           <img src={image} alt={title} />
