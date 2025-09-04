@@ -50,13 +50,13 @@ const News = () => {
         <div className="hero-overlay"></div>
         <Container>
           <div className="hero-content">
-            <h1 className="hero-title">新闻资讯</h1>
-            <p className="hero-subtitle">AI赋能，让一切皆有可能</p>
+            <h1 className="hero-title">研究院动态</h1>
+            <p className="hero-subtitle">学术前沿 · 科研进展 · 教育创新</p>
             <div className="banner-search">
               <div className="search-box">
                 <input
                   type="text"
-                  placeholder="搜索新闻资讯..."
+                  placeholder="搜索研究院动态..."
                   value={searchTerm}
                   onChange={(e) => setSearchTerm(e.target.value)}
                   className="search-input"
@@ -75,7 +75,7 @@ const News = () => {
         <section className="news-overview">
           <div className="overview-grid">
             <div className="overview-left">
-              <h3 className="overview-title">最新发布</h3>
+              <h3 className="overview-title">重要动态</h3>
               <div className="overview-featured">
                 {featuredNews.map(item => (
                   <article
@@ -95,7 +95,7 @@ const News = () => {
               </div>
             </div>
             <div className="overview-right">
-              <h3 className="overview-title">新闻列表</h3>
+              <h3 className="overview-title">动态列表</h3>
               <ul className="overview-list">
                 {listNews.map(item => (
                   <li key={item.id} className="overview-list-item" onClick={() => handleNewsClick(item.id)}>
