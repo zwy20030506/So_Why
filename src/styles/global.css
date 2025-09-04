@@ -198,8 +198,8 @@ body {
 
 /* 顶部横幅区域 */
 /* 复用产品与服务页 hero 结构的新闻头图样式 */
-.news-hero {
-  height: 40px;
+.product-hero.news-hero {
+  height: 120px !important;
   margin-top: 80px;
 }
 
@@ -760,8 +760,8 @@ body {
 
 /* 响应式设计 */
 @media (max-width: 768px) {
-  .news-hero {
-    height: 35px;
+  .product-hero.news-hero {
+    height: 90px !important;
     margin-top: 70px;
   }
   

@@ -3073,6 +3073,12 @@ body {
     margin-top: 80px;
 }
 
+/* 新闻页面特殊样式 - 覆盖默认高度 */
+.product-hero.news-hero {
+    height: 200px !important;
+    min-height: 180px !important;
+}
+
 .hero-background {
     position: absolute;
     top: 0;
